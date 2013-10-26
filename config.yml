@@ -1,0 +1,132 @@
+formatting:
+  toChannel: '[%s&f] %s%s&f: &f%s'
+  tellOther: '&d[MSG] You -> &f%s&f: &f%s'
+  tellMe: '&d[MSG] &f%s&f%s &d-> You&f: %s'
+settings:
+  default: global
+  noTellsToCeleo:
+  - TheGreatRain
+  - Jaredf
+  - Xolnir
+  - chili_dude96
+  allChannels:
+  - underworld
+  - global
+  - staff
+  - help
+  - local
+  - trade
+  - clan
+  - officer
+  - chase
+channels:
+  underworld:
+    tag: u
+    color: '7'
+    perms:
+      join: true
+      speak: false
+    verbose: false
+    canleave: true
+    muted: []
+    banned: []
+    colorChat: false
+    type: normal
+  global:
+    tag: g
+    color: '2'
+    perms:
+      join: false
+      speak: false
+    verbose: false
+    canleave: true
+    muted: []
+    banned: []
+    colorChat: true
+    type: normal
+  staff:
+    tag: staff
+    color: '6'
+    perms:
+      join: true
+      speak: false
+    verbose: true
+    canleave: true
+    muted: []
+    banned: []
+    colorChat: true
+    type: normal
+  help:
+    tag: h
+    color: b
+    perms:
+      join: false
+      speak: false
+    verbose: false
+    canleave: true
+    muted: []
+    banned: []
+    colorChat: true
+    type: normal
+  local:
+    tag: l
+    color: e
+    perms:
+      join: false
+      speak: false
+    verbose: false
+    canleave: true
+    muted: []
+    banned: []
+    colorChat: true
+    type: local
+  trade:
+    tag: t
+    color: a
+    perms:
+      join: false
+      speak: false
+    verbose: false
+    canleave: true
+    muted: []
+    banned: []
+    colorChat: true
+    type: normal
+  clan:
+    tag: c
+    color: a
+    perms:
+      join: false
+      speak: false
+    verbose: false
+    canleave: false
+    muted: []
+    banned: []
+    colorChat: false
+    type: clan
+  officer:
+    tag: co
+    color: 3
+    perms:
+      join: false
+      speak: false
+    verbose: false
+    canleave: false
+    muted: []
+    banned: []
+    colorChat: true
+    type: clan_officer
+  chase:
+    tag: c
+    color: '1'
+    perms:
+      join: true
+      speak: false
+    verbose: false
+    canleave: true
+    muted: []
+    banned: []
+    colorChat: false
+    type: normal
+spelling:
+- ur-your

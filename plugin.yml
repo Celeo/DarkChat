@@ -1,0 +1,34 @@
+name: DarkChat
+version: 0.2.17.1
+author: Celeo
+description: Plugin that controls chat for DeadTide
+main: com.darktidegames.celeo.darkchat.DarkChatCore
+depend: [bPermissions]
+commands:
+  ch:
+    usage: /<command> [parameters]
+    description: Channel-based commands
+  dc:
+    usage: /<command> [parameters]
+    description: Channel-based commands
+  darkchat:
+    usage: /<command> [parameters]
+    description: Channel-based commands
+  tell:
+    usage: /<command> [who] (message)
+    description: Starts or sends a private message
+  whisper:
+    usage: /<command> [who] (message)
+    description: Starts or sends a private message
+  message:
+    usage: /<command> [who] (message)
+    description: Starts or sends a private message
+  msg:
+    usage: /<command> [who] (message)
+    description: Starts or sends a private message
+  t:
+    usage: /<command> [who] (message)
+    description: Starts or sends a private message
+  r:
+    usage: /<command> [message]
+    description: Replies to the last person to message you

@@ -1,0 +1,9 @@
+channels:
+- global
+- help
+- local
+- trade
+- clan
+- officer
+focus: 'offtopic'
+ignoring: []
