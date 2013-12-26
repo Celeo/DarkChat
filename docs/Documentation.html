@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="utf-8">
+<title>DarkChat Docs</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Celeo">
+<meta name="author" content="Celeo">
+<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<style>
+	body {
+		padding-top: 60px;
+		padding-bottom: 40px;
+		background-color: #E6E6E6;
+	}
+	h2 {
+		background-color: lightblue;
+		width: 65%;
+		margin-top: 2em;
+	}
+	p {
+		margin-left: 20%;
+		margin-right: 20%;
+		text-align: left;
+	}
+</style>
+</head>
+
+<body>
+
+<div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container">
+            <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar">1</span>
+            <span class="icon-bar">2</span>
+            <span class="icon-bar">3</span>
+            </button>
+            <a class="brand" href="">DarkChat</a>
+            <div class="nav-collapse collapse">
+                <ul class="nav pull-right">
+						<li><a href="https://github.com/Celeo">Celeo @ GitHub</a></li>
+						<li><a href="https://bitbucket.org/Celeo">Celeo @ Bitbucket</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Content -->
+
+<center>
+
+<h1>DarkChat Documentation</h1>
+
+<h2>Overview</h2>
+<p>
+	<b>DarkChat</b> was created to solve the shortcomings of HeroChat, which DarkTide used for over a year. As I remember, HeroChat was not correctly letting the 
+	Admins set permissions to channels, nor letting us correctly set channel mods. In addition, I do not believe that it, at the time, it allowed for any sensible way for 
+	players to purchase their own in-game channels, as the plugin's command system was disfunctional and manually editing its configuration was not sensible.
+</p>
+
+<h2>Features</h2>
+<p>
+	<b>DarkChat</b> is a fully-featured chat overhaul, including full permissions configuration to multiple channels, full resistriction including mutes, kicks, and bans, 
+	varied channels with colors, a sensible and simple command system, logging on command and per channel/player, and private messaging. As with all of the Dark* 
+	plugins, it was developed to be used in upholding rules and easily as possible.
+</p>
+
+<h2>Requirements</h2>
+<p>
+	<u>Hard</u>:<br>
+	1. <a href="http://dev.bukkit.org/bukkit-plugins/bpermissions/">bPermissions</a><br>
+	<u>Soft</u>:<br>
+	1. <b>DarkClans</b>
+</p>
+
+<h2>Configuration</h2>
+<p>
+	When the plugin is ran for the first time, it will copy its default configuration out from the plugin .jar file into the appropriate directory. This configuration comes 
+	pre-packaged with 9 channels, defaulting to interfacing with <b>DarkClans</b> for faction integration. All configuration editing can be done with the in-game 
+	commands, but <b>DarkChat</b> does support manual editing and reloading with the appropriate command.
+</p>
+
+<h2>Commands and Permissions</h2>
+<p>
+	All basic commands are started with any one of the following labels:<br>
+	1. <b>ch</b><br>
+	2. <b>dc</b><br>
+	3. <b>darkchat</b><br>
+	Then, the parameters are as such, with their matching permissions:
+</p>
+
+<div style="width: 50%; margin-left: auto; margin-right: auto;">
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<th>
+					Command
+				</th>
+				<th>
+					Action
+				</th>
+				<th>
+					Permission(s)
+				</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>
+					who
+				</td>
+				<td>
+					Returns the other players in the focused channel
+				</td>
+				<td>
+					None
+				</td>
+			</tr>
+			<tr>
+				<td>
+					list
+				</td>
+				<td>
+					Lists the joinable channels
+				</td>
+				<td>
+					None
+				</td>
+			</tr>
+			<tr>
+				<td>
+					join [channel]
+				</td>
+				<td>
+					Attempts to add the player to that channel. Fails if they have insufficient permissions, the channel doesn't exist, or they are already in it.
+				</td>
+				<td>
+					None if public channel, otherwise, that channel's permission
+				</td>
+			</tr>
+			<tr>
+				<td>
+					leavel [channel]
+				</td>
+				<td>
+					Removes the player from that channel, so that they no longer<br>receive messages to it
+				</td>
+				<td>
+					None
+				</td>
+			</tr>
+			<tr>
+				<td>
+					-info [channel]
+				</td>
+				<td>
+					Shows information about a channel
+				</td>
+				<td>
+					None
+				</td>
+			</tr>
+			<tr>
+				<td>
+					ignore [name]
+				</td>
+				<td>
+					Toggles ignoring that player
+				</td>
+				<td>
+					None, but ignoring does not work on players with <i>darkchat.nopmsbypass</i>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					-nopms
+				</td>
+				<td>
+					Stops incoming private messages from people without <i>darkchat.mod</i>
+				</td>
+				<td>
+					darkchat.mod
+				</td>
+			</tr>
+			<tr>
+				<td>
+					-ghost
+				</td>
+				<td>
+					Shows the user all chats, including channels they're not in and<br>private messsages. Toggle.
+				</td>
+				<td>
+					darkchat.mod
+				</td>
+			</tr>
+			<tr>
+				<td>
+					-mute [channel] [player]
+				</td>
+				<td>
+					Mutes target player in channel
+				</td>
+				<td>
+					darkchat.mod OR being a mod of the target channel
+				</td>
+			</tr>
+			<tr>
+				<td>
+					-shadowmute [target]
+				</td>
+				<td>
+					Player sees their own messages, but no one else does. Server-wide ignore<br>towards that player. Effective against raging, as they believe 
+					that they are still getting their rage out, but no one else sees it.
+				</td>
+				<td>
+					darkchat.admin
+				</td>
+			</tr>
+			<tr>
+				<td>
+					-kick [channel] [player]
+				</td>
+				<td>
+					Kicks target player from channel
+				</td>
+				<td>
+					darkchat.mod OR being a mod of the target channel
+				</td>
+			</tr>
+			<tr>
+				<td>
+					-ban [channel] [player]
+				</td>
+				<td>
+					Kicks and then bans (prevents re-joining) of target player in channel
+				</td>
+				<td>
+					darkchat.mod OR being a mod of the target channel
+				</td>
+			</tr>
+			<tr>
+				<td>
+					-reload
+				</td>
+				<td>
+					Reloads all in-game data from the configuration file. Used for manually edits.
+				</td>
+				<td>
+					darkchat.admin
+				</td>
+			</tr>
+			<tr>
+				<td>
+					-flush
+				</td>
+				<td>
+					Overwrites all data in the configuration file with the in-game settings.
+				</td>
+				<td>
+					darkchat.admin
+				</td>
+			</tr>
+			<tr>
+				<td>
+					-create [channel]
+				</td>
+				<td>
+					Loads the channel from the configuration file
+				</td>
+				<td>
+					darkchat.admin
+				</td>
+			</tr>
+			<tr>
+				<td>
+					-logs [player] (day)
+				</td>
+				<td>
+					Creates a text file on the server from the chat database
+				</td>
+				<td>
+					darkchat.admin
+				</td>
+			</tr>
+			<tr>
+				<td>
+					-readout
+				</td>
+				<td>
+					Returns information about the in-game data
+				</td>
+				<td>
+					darkchat.admin
+				</td>
+			</tr>
+			<tr>
+				<td>
+					-defaultconfig
+				</td>
+				<td>
+					Overwrites the configuration file with the default from the .jar
+				</td>
+				<td>
+					darkchat.admin
+				</td>
+			</tr>
+			<tr>
+				<td>
+					-databasedamnit
+				</td>
+				<td>
+					Forces the setup of the database
+				</td>
+				<td>
+					darkchat.admin
+				</td>
+			</tr>
+			<tr>
+				<td>
+					-logging
+				</td>
+				<td>
+					Starts logging all chat to a text file on the server, in addition<br>to storing it in the database
+				</td>
+				<td>
+					darkchat.admin
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<p>
+	Such that an example command would be <b>/dc join general</b>.<br>
+	Sending a message to a channel without setting it as your focus is done with <b>/dc [channel [message...]</b>.
+</p>
+
+<br>
+<p>
+	Private message commands are as follow:<br>
+	1. <b>/tell [player] (message)</b><br>
+	2. <b>/whisper [player] (message)</b><br>
+	3. <b>/message [player] (message)</b><br>
+	4. <b>/msg [player] (message)</b><br>
+	5. <b>/t [player] (message)</b><br>
+	A reply command, <b>/r [message]</b> also exists, to reply to the last person who messaged you.<br>
+	If the (mesage) parameter is omitted, the command user's default chat channel with switch to a private message channel between the user 
+	and the target.<br><br>
+</p>
+
+<!-- End Content -->
+
+</center>
+
+</body>
+
+</html>
